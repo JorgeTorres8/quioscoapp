@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar"
 import Pasos from "../components/Pasos";
 import ModalProducto from "../components/ModalProducto";
 import useQuiosco from "../hook/useQuiosco";
-
+import Spinner from "../components/Spinner";
 import 'react-toastify/dist/ReactToastify.css' // estilos
 
 const customStyles = { //lo copiamos desde la pagina del npm
@@ -23,36 +23,40 @@ const customStyles = { //lo copiamos desde la pagina del npm
 
 export default function Layout({children, pagina}) {
 
-    const {modal} = useQuiosco();
+    const {modal, cargando} = useQuiosco();
 
     return (
         <>
-            <Head>
-                <title>Café - {pagina}</title>
-                <meta name="description" content="Quiosco Cafetería"/>
-            </Head>
-        
-            <div className="md:flex">
-                <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5">
-                    <Sidebar/>
-                </aside>
+            {cargando ? <Spinner/> : 
+                <>
+                    <Head>
+                        <title>Quiosco - {pagina}</title>
+                        <meta name="description" content="Quiosco Cafetería"/>
+                    </Head>
+                
+                    <div className="md:flex">
+                        <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5">
+                            <Sidebar/>
+                        </aside>
 
-                <main className="md:w-8/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll">
-                    <div className="p-10">
-                        <Pasos/>
-                        {children}
+                        <main className="md:w-8/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll">
+                            <div className="p-10">
+                                <Pasos/>
+                                {children}
+                            </div>
+                        </main>
                     </div>
-                </main>
-            </div>
 
-            {modal && (
-                <Modal isOpen={modal} style={customStyles}>
-                    <ModalProducto/>
-                </Modal>
-            )}
+                    {modal && (
+                        <Modal isOpen={modal} style={customStyles}>
+                            <ModalProducto/>
+                        </Modal>
+                    )}
 
-            <ToastContainer/>
+                    <ToastContainer/>
+                </>
+            }
+        
         </>
-
     )
 }

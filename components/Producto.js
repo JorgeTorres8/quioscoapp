@@ -21,7 +21,7 @@ const Producto = ({producto}) => {
         </div>
         
         <div className="p-5">
-            <h3 className="text-2xl font-bold flex justify-center">{nombre}</h3>
+            <h3 className="text-2xl font-bold text-center">{nombre}</h3>
             <p className="mt-5 font-black text-4xl text-amber-500 flex justify-center">{formatearDinero(precio)}</p>
 
             <button

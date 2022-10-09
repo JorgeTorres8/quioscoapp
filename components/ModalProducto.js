@@ -23,7 +23,7 @@ const ModalProducto = () => {
     
 
   return (
-    <div className="grid md:flex gap-10">
+    <div className="grid md:flex">
         <div className="md:w-1/3 flex justify-center">
             <Image
                 width={300}
@@ -52,7 +52,7 @@ const ModalProducto = () => {
                     </svg>
                 </button>
             </div>
-            <h1 className="text-3xl font-bold mt-3 md:mt-5 flex justify-center ">{producto.nombre}</h1>
+            <h1 className="text-3xl font-bold mt-3 md:mt-5 text-center ">{producto.nombre}</h1>
             <p className="mt-3 md:mt-5 font-black text-5xl text-amber-500 flex justify-center">{formatearDinero(producto.precio)}</p>
             
             <div className="flex gap-4 mt-3 md:mt-5 justify-center">

@@ -8,12 +8,15 @@ const Sidebar = () => {
   
   return (
     <>
-        <Image
-            width={300}
-            height={100}
-            src="/assets/img/logo.svg"
-            alt="imagen logotipo"
-        />
+        <div className="mt-5 flex justify-center">
+            <Image
+                width={300}
+                height={100}
+                src="/assets/img/logo.svg"
+                alt="imagen logotipo"
+            />
+        </div>
+        
 
         <nav className="mt-5">
             {categorias?.map(categoria => (

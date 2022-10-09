@@ -7,8 +7,8 @@ const ResumenProducto = ({producto}) => {
     const {handleEditarCantidades, handleEliminarProducto} = useQuiosco();
 
   return (
-    <div className="shadow p-5 mb-3 flex gap-10 items-center">
-        <div className="md:w-1/6">
+    <div className="shadow p-5 mb-3 lg:flex gap-10 items-center">
+        <div className="md:flex md:justify-center lg:w-1/6">
             <Image
                 width={300}
                 height={400}
@@ -17,17 +17,17 @@ const ResumenProducto = ({producto}) => {
             />
         </div> 
 
-        <div className="md:w-4/6">
-            <p className="text-3xl font-bold">{producto.nombre}</p>
-            <p className="text-xl font-bold mt-2">Cantidad: {producto.cantidad}</p>
-            <p className="text-xl font-bold text-amber-500 mt-2">Precio: {formatearDinero(producto.precio)}</p>
-            <p className="text-sm text-gray-700 mt-2">Subtotal: {formatearDinero(producto.precio * producto.cantidad)}</p>
+        <div className="lg:w-4/6">
+            <p className="text-3xl font-bold text-center mt-2 lg:text-left lg:mt-0">{producto.nombre}</p>
+            <p className="lg:text-xl md:text-2xl md:mt-5 text-center lg:text-left font-bold mt-2">Cantidad: {producto.cantidad}</p>
+            <p className="lg:text-xl md:text-2xl text-center lg:text-left font-bold text-amber-500 mt-2">Precio: {formatearDinero(producto.precio)}</p>
+            <p className="text-xl text-center lg:text-left lg:text-sm text-gray-700 mt-2">Subtotal: {formatearDinero(producto.precio * producto.cantidad)}</p>
         </div>
 
         <div>
             <button
                 type="button"
-                className="bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full"
+                className="bg-sky-700 flex justify-center gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full md:mt-5 mt-2"
                 onClick={() => handleEditarCantidades(producto.id)}
             >
                 <svg 
@@ -44,7 +44,7 @@ const ResumenProducto = ({producto}) => {
 
             <button
                 type="button"
-                className="bg-red-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full mt-3"
+                className="bg-red-700 flex justify-center gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full mt-3"
                 onClick={() => handleEliminarProducto(producto.id)}
             >
                 <svg 
